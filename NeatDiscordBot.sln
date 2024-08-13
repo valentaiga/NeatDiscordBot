@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatDiscordBot", "src\NeatDiscordBot\NeatDiscordBot.csproj", "{68E22BA0-2B3D-4116-BD9F-142F1CB7EE44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatDiscordBot.Discord", "src\NeatDiscordBot.Discord\NeatDiscordBot.Discord.csproj", "{D23E3DAD-0862-44F0-9567-6FE4CDAD398D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68E22BA0-2B3D-4116-BD9F-142F1CB7EE44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E22BA0-2B3D-4116-BD9F-142F1CB7EE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E22BA0-2B3D-4116-BD9F-142F1CB7EE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E22BA0-2B3D-4116-BD9F-142F1CB7EE44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D23E3DAD-0862-44F0-9567-6FE4CDAD398D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D23E3DAD-0862-44F0-9567-6FE4CDAD398D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D23E3DAD-0862-44F0-9567-6FE4CDAD398D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D23E3DAD-0862-44F0-9567-6FE4CDAD398D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
