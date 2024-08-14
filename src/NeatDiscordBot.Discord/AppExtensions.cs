@@ -35,14 +35,20 @@ public static class AppExtensions
         // features
         services
             .AddSingleton<IFeature, UserInfoTracker>()
+            .AddSingleton<IFeature, ReactionsTracker>()
             .AddSingleton<IFeature, CommandHandler>();
 
         // commands
         services
-            .AddSingleton<IBotCommand, PingCommand>();
+            .AddSingleton<IBotCommand, PingCommand>()
+            .AddSingleton<IBotCommand, TrackReaction>()
+            .AddSingleton<IBotCommand, UntrackReaction>();
         
         // services
-        services.AddSingleton<IUserRepository, RedisUserRepository>();
+        services
+            .AddSingleton<IUserRepository, RedisUserRepository>()
+            .AddSingleton<IGuildRepository, GuildRepository>()
+            .AddSingleton<IGuildReactionsService, GuildReactionsService>();
 
         // client
         services.AddOptions<NeatClientConfig>()

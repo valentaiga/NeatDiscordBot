@@ -6,7 +6,7 @@ namespace NeatDiscordBot.Discord.Features.UserTracker;
 
 public class UserInfoTracker : IFeature
 {
-    public string FeatureName => "UserInfoTracker";
+    public string FeatureName => "user_info_tracker";
 
     private readonly INeatClient _neatClient;
     private readonly IUserRepository _userRepository;
@@ -26,7 +26,7 @@ public class UserInfoTracker : IFeature
     private async Task CreateUserInDb(SocketGuildUser dsUser)
     {
         if (dsUser.IsBot) return;
-        var user = await _userRepository.GetOrCreateUserAsync(dsUser.Id, dsUser.Guild.Id);
+        var user = await _userRepository.GetOrCreateUserAsync(dsUser.Guild.Id, dsUser.Id);
         Update(user, dsUser);
         await _userRepository.SaveUserAsync(user);
     }

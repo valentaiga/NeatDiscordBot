@@ -8,4 +8,7 @@ public class NeatClientConfig
     
     [Required]
     public required string Token { get; set; }
+    
+    [Required]
+    public required TimeSpan ReactionCollectTimeout { get; set; }
 }

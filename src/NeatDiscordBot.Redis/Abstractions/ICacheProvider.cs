@@ -4,7 +4,9 @@ public interface ICacheProvider
 {
     ValueTask Remove(string cacheKey);
 
-    ValueTask SaveAsync<T>(string cacheKey, T value);
+    ValueTask SaveAsync<T>(string cacheKey, T value, TimeSpan? expirationTime = null);
+
+    ValueTask<bool> KeyExistsAsync(string cacheKey);
 
     ValueTask<T?> GetAsync<T>(string cacheKey);
 

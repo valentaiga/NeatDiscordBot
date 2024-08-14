@@ -38,10 +38,15 @@ public class RedisProvider : ICacheProvider, IDisposable
         await Database.KeyDeleteAsync(cacheKey);
     }
 
-    public async ValueTask SaveAsync<T>(string cacheKey, T value)
+    public async ValueTask SaveAsync<T>(string cacheKey, T value, TimeSpan? expirationTime = null)
     {
         var json = SerializeValue(value);
-        await Database.StringSetAsync(AdjustProjectPrefix(cacheKey), json);
+        await Database.StringSetAsync(AdjustProjectPrefix(cacheKey), json, expirationTime);
+    }
+
+    public async ValueTask<bool> KeyExistsAsync(string cacheKey)
+    {
+        return await Database.KeyExistsAsync(cacheKey);
     }
 
     public async ValueTask<T?> GetFromHashAsync<T>(string outerKey, string innerKey)

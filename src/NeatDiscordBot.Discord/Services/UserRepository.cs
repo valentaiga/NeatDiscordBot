@@ -6,7 +6,7 @@ namespace NeatDiscordBot.Discord.Services;
 
 public interface IUserRepository
 {
-    ValueTask<User> GetOrCreateUserAsync(ulong userId, ulong guildId);
+    ValueTask<User> GetOrCreateUserAsync(ulong guildId, ulong userId);
     ValueTask SaveUserAsync(User user);
 }
 
@@ -21,7 +21,7 @@ public class RedisUserRepository : IUserRepository
         _logger = logger;
     }
 
-    public async ValueTask<User> GetOrCreateUserAsync(ulong userId, ulong guildId)
+    public async ValueTask<User> GetOrCreateUserAsync(ulong guildId, ulong userId)
     {
         var user = await _cacheRepository.GetAsync<User>(User.GetCacheKey(guildId, userId));
 
