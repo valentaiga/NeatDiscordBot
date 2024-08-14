@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatDiscordBot", "src\NeatD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatDiscordBot.Discord", "src\NeatDiscordBot.Discord\NeatDiscordBot.Discord.csproj", "{D23E3DAD-0862-44F0-9567-6FE4CDAD398D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatDiscordBot.Redis", "NeatDiscordBot.Redis\NeatDiscordBot.Redis.csproj", "{5959E6A4-8EB5-4D96-A056-0F8EA1E660C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{D23E3DAD-0862-44F0-9567-6FE4CDAD398D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D23E3DAD-0862-44F0-9567-6FE4CDAD398D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D23E3DAD-0862-44F0-9567-6FE4CDAD398D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5959E6A4-8EB5-4D96-A056-0F8EA1E660C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5959E6A4-8EB5-4D96-A056-0F8EA1E660C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5959E6A4-8EB5-4D96-A056-0F8EA1E660C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5959E6A4-8EB5-4D96-A056-0F8EA1E660C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
