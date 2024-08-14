@@ -1,3 +1,4 @@
+using NeatDiscordBot.Common;
 using NeatDiscordBot.Discord;
 
 namespace NeatDiscordBot;
@@ -17,9 +18,9 @@ public class NeatClientWorker : IHostedService
     {
         try
         {
-            _logger.LogInformation("Worker starting at: {time}", DateTimeOffset.UtcNow);
+            _logger.Information("Bot starting at: {time}", DateTimeOffset.UtcNow);
             await _neatClient.StartAsync();
-            _logger.LogInformation("Bot started");
+            _logger.Information("Bot started");
         }
         catch (Exception ex)
         {

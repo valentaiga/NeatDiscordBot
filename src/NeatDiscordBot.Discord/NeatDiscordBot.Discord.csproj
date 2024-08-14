@@ -12,4 +12,9 @@
       <PackageReference Include="Microsoft.Extensions.Options.DataAnnotations" Version="8.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\NeatDiscordBot.Common\NeatDiscordBot.Common.csproj" />
+      <ProjectReference Include="..\NeatDiscordBot.Redis\NeatDiscordBot.Redis.csproj" />
+    </ItemGroup>
+
 </Project>
