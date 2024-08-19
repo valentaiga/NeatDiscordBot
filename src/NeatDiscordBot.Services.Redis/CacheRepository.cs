@@ -1,6 +1,6 @@
-﻿using NeatDiscordBot.Redis.Abstractions;
+﻿using NeatDiscordBot.Services.Redis.Abstractions;
 
-namespace NeatDiscordBot.Redis;
+namespace NeatDiscordBot.Services.Redis;
 
 public class CacheRepository : ICacheRepository
 {

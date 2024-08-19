@@ -1,4 +1,4 @@
-﻿using NeatDiscordBot.Redis.Abstractions;
+﻿using NeatDiscordBot.Services.Redis.Abstractions;
 
 namespace NeatDiscordBot.Discord.Services;
 
@@ -36,8 +36,8 @@ public class GuildReactionsService : IGuildReactionsService
     public async ValueTask AddReactionAsync(ulong guildId, ulong messageAuthorId, ulong reactionAuthorId, string reactionName)
     {
         var user = await _userRepository.GetOrCreateUserAsync(guildId, messageAuthorId);
-        var reactionsCount = user.CollectedReactions.GetValueOrDefault(reactionName);
-        user.CollectedReactions[reactionName] = ++reactionsCount;
+        var reactionsCount = user.Currency.GetValueOrDefault(reactionName);
+        user.Currency[reactionName] = ++reactionsCount;
         await _userRepository.SaveUserAsync(user);
         await AddRecentReactionAsync(guildId, messageAuthorId, reactionAuthorId, reactionName);
     }

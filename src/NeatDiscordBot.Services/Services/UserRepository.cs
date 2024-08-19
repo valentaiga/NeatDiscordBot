@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using NeatDiscordBot.Discord.Entities;
-using NeatDiscordBot.Redis.Abstractions;
+using NeatDiscordBot.Services.Redis.Abstractions;
 
 namespace NeatDiscordBot.Discord.Services;
 

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace NeatDiscordBot.Redis;
+namespace NeatDiscordBot.Services.Redis;
 
 public class RedisConfiguration
 {

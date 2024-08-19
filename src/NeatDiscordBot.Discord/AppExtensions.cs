@@ -8,7 +8,7 @@ using NeatDiscordBot.Discord.Features.CommandHandler;
 using NeatDiscordBot.Discord.Features.CommandHandler.Commands;
 using NeatDiscordBot.Discord.Features.UserTracker;
 using NeatDiscordBot.Discord.Services;
-using NeatDiscordBot.Redis;
+using NeatDiscordBot.Services.Redis;
 
 namespace NeatDiscordBot.Discord;
 
@@ -34,15 +34,16 @@ public static class AppExtensions
 
         // features
         services
-            .AddSingleton<IFeature, UserInfoTracker>()
-            .AddSingleton<IFeature, ReactionsTracker>()
-            .AddSingleton<IFeature, CommandHandler>();
+            .AddFeature<UserInfoTracker>()
+            .AddFeature<ReactionsTracker>()
+            .AddFeature<CommandHandler>()
+            .AddFeature<VoiceActivityTracker>();
 
         // commands
         services
-            .AddSingleton<IBotCommand, PingCommand>()
-            .AddSingleton<IBotCommand, TrackReaction>()
-            .AddSingleton<IBotCommand, UntrackReaction>();
+            .AddCommand<PingCommand>()
+            .AddCommand<TrackReaction>()
+            .AddCommand<UntrackReaction>();
         
         // services
         services
@@ -58,6 +59,15 @@ public static class AppExtensions
 
         return services;
     }
+
+    private static IServiceCollection AddFeature<TFeature>(this IServiceCollection services)
+        where TFeature : class, IFeature =>
+        services.AddSingleton<IFeature, TFeature>();
+    
+    private static IServiceCollection AddCommand<TCommand>(this IServiceCollection services)
+        where TCommand : class, IBotCommand =>
+        services.AddSingleton<IBotCommand, TCommand>();
+    
 
     public static IServiceProvider EnableFeatures(this IServiceProvider serviceProvider)
     {

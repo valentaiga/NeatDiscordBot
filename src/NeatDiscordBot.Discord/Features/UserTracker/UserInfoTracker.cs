@@ -34,7 +34,7 @@ public class UserInfoTracker : IFeature
     private async Task UpdateUserInDb(SocketUser beforeUser, SocketUser afterUser)
     {
         if (afterUser.IsBot) return;
-        if (!afterUser.IsSocketGuildUser(out var dsUser)) return;
+        if (afterUser is not SocketGuildUser dsUser) return;
 
         var user = new User(dsUser.Id, dsUser.Guild.Id);
         Update(user, dsUser);

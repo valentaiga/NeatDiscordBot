@@ -32,12 +32,10 @@ public class ReactionsTracker : IFeature
 
         var textChannel = (SocketGuildChannel)await cachedTextChannel.GetOrDownloadAsync();
 
-        var isReactionTracked =
-            await _guildReactionsService.IsReactionTracked(textChannel.Guild.Id, reaction.Emote.Name);
+        var isReactionTracked = await _guildReactionsService.IsReactionTracked(textChannel.Guild.Id, reaction.Emote.Name);
         if (!isReactionTracked) return;
         
-        var hasRecentReaction =
-            await _guildReactionsService.HasRecentReactionAsync(textChannel.Guild.Id, message.Author.Id, reaction.UserId, reaction.Emote.Name);
+        var hasRecentReaction = await _guildReactionsService.HasRecentReactionAsync(textChannel.Guild.Id, message.Author.Id, reaction.UserId, reaction.Emote.Name);
         if (hasRecentReaction) return;
 
         await _guildReactionsService.AddReactionAsync(textChannel.Guild.Id, message.Id, reaction.UserId, reaction.Emote.Name);

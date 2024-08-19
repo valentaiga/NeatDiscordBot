@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using NeatDiscordBot.Redis.Abstractions;
+using NeatDiscordBot.Services.Redis.Abstractions;
 
 namespace NeatDiscordBot.Discord.Entities;
 

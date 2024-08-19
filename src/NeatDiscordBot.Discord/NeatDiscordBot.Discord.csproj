@@ -13,8 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NeatDiscordBot.Common\NeatDiscordBot.Common.csproj" />
-      <ProjectReference Include="..\NeatDiscordBot.Redis\NeatDiscordBot.Redis.csproj" />
+      <ProjectReference Include="..\NeatDiscordBot.Services\NeatDiscordBot.Services.csproj" />
     </ItemGroup>
 
 </Project>

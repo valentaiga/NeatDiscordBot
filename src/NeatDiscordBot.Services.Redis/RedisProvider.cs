@@ -2,10 +2,10 @@
 using System.Text.Json;
 using System.Text.Unicode;
 using Microsoft.Extensions.Options;
-using NeatDiscordBot.Redis.Abstractions;
+using NeatDiscordBot.Services.Redis.Abstractions;
 using StackExchange.Redis;
 
-namespace NeatDiscordBot.Redis;
+namespace NeatDiscordBot.Services.Redis;
 
 public class RedisProvider : ICacheProvider, IDisposable
 {

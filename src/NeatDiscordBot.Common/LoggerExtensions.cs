@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace NeatDiscordBot.Common;
+namespace NeatDiscordBot.Discord;
 
 public static class LoggerExtensions
 {

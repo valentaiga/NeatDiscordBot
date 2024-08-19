@@ -1,4 +1,3 @@
-using NeatDiscordBot.Common;
 using NeatDiscordBot.Discord;
 
 namespace NeatDiscordBot;

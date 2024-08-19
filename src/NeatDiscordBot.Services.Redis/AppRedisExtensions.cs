@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using NeatDiscordBot.Redis.Abstractions;
+using NeatDiscordBot.Services.Redis.Abstractions;
 
-namespace NeatDiscordBot.Redis;
+namespace NeatDiscordBot.Services.Redis;
 
 public static class AppRedisExtensions
 {

@@ -1,4 +1,4 @@
-﻿namespace NeatDiscordBot.Redis.Abstractions;
+﻿namespace NeatDiscordBot.Services.Redis.Abstractions;
 
 public interface ICacheRepository
 {
