@@ -21,7 +21,9 @@ public class User : IRedisEntity
 
     public ulong GuildId { get; set; }
 
-    public string Nickname { get; set; }
+    public string? Username { get; set; }
+
+    public string? Nickname { get; set; }
 
     /// <summary> Represents emoji/emotes collected by user </summary>
     public Dictionary<string, uint> Currency { get; set; }

@@ -19,11 +19,17 @@ public class UserInfoTracker : IFeature
 
     public void Enable()
     {
-        _neatClient.BotClient.UserJoined += CreateUserInDb;
-        _neatClient.BotClient.UserUpdated += UpdateUserInDb;
+        _neatClient.BotClient.UserJoined += CreateOrUpdateUserAsync;
+        _neatClient.BotClient.UserUpdated += UpdateUserAsync;
+        _neatClient.BotClient.UserVoiceStateUpdated += (user, _, _) => CreateOrUpdateUserAsync(user);
+        _neatClient.BotClient.UserCommandExecuted += command => CreateOrUpdateUserAsync(command.User);
+        _neatClient.BotClient.MessageReceived += message => CreateOrUpdateUserAsync(message.Author);
+        _neatClient.BotClient.MessageUpdated += (_, message, _) => CreateOrUpdateUserAsync(message.Author);
     }
 
-    private async Task CreateUserInDb(SocketGuildUser dsUser)
+    private Task CreateOrUpdateUserAsync(SocketUser dsUser) => dsUser is SocketGuildUser s ? CreateOrUpdateUserAsync(s) : Task.CompletedTask;
+
+    private async Task CreateOrUpdateUserAsync(SocketGuildUser dsUser)
     {
         if (dsUser.IsBot) return;
         var user = await _userRepository.GetOrCreateUserAsync(dsUser.Guild.Id, dsUser.Id);
@@ -31,7 +37,7 @@ public class UserInfoTracker : IFeature
         await _userRepository.SaveUserAsync(user);
     }
 
-    private async Task UpdateUserInDb(SocketUser beforeUser, SocketUser afterUser)
+    private async Task UpdateUserAsync(SocketUser beforeUser, SocketUser afterUser)
     {
         if (afterUser.IsBot) return;
         if (afterUser is not SocketGuildUser dsUser) return;
@@ -43,6 +49,7 @@ public class UserInfoTracker : IFeature
 
     private static void Update(User dbUser, SocketGuildUser user)
     {
+        dbUser.Username = user.Username;
         dbUser.Nickname = string.IsNullOrEmpty(user.Nickname) ? user.Username : user.Nickname;
     }
 }
