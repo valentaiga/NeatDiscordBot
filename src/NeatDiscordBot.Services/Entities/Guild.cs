@@ -18,7 +18,7 @@ public class Guild : IRedisEntity
     }
 
     public ulong GuildId { get; set; }
-
+    public string? CommandsVersion { get; set; }
     public HashSet<ulong> IgnoredChannels { get; set; }
     public HashSet<string> TrackedReactions { get; set; }
 
